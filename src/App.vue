@@ -6,20 +6,17 @@
 </template>
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-  }
-
-  #app {
-    height: 10px;
-  }
-
-  p {
-    margin: 0;
-    padding: 0;
-  }
+  body{
+  background-color: #f4f4f4;
+}
+p{
+  margin: 0;
+  padding: 0;
+}
+input{
+  outline: none;
+  border: 0;
+}
+  
 
 </style>

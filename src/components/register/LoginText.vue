@@ -1,20 +1,12 @@
 <template>
   <div class="login-text">
-      
-      <div class="user-info" >
-          <div class="right">
-              <label>{{label}}</label>
-          </div>       
-                
-            <div class="left">
-                <input v-model="content"          
-                    :type="type" 
-                    :placeholder="placeholder"
-                    :regex="regex"
-                    />
-            </div>
-                 
-      </div>             
+      <van-field v-model="content" 
+                :label="label" 
+                :type="type" 
+                :placeholder="placeholder" 
+                :regex="regex"/>
+     
+          
   </div>
 </template>
 
@@ -30,8 +22,10 @@ export default {
         handlerRegex() {
             const rule = new RegExp(this.regex)   
             if(rule.test(this.content)){
-                this.$emit('inputChange', this.content)                         
+                this.$emit('inputChange', this.content)                          
             }
+            
+            
         }
     },
     watch: {
@@ -44,22 +38,5 @@ export default {
 </script>
 
 <style>
-    .login-text .user-info {
-        display: flex;
-        padding: 10px 0;
-        border-bottom: 1px solid lightgray;
-         
-    }
-    label {
-        display: block;
-        margin-left: 20px;
-    }
-    input {
-        width: 100%;
-        margin-left: 50px;
-        outline-style: none;
-        border: none;
-        font-size: 14px;
-        
-    }
+    
 </style>

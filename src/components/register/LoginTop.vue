@@ -1,56 +1,38 @@
 <template>
-    <div class="login-top">
-        <div class="backBtn">
-            <div class=login-top-left>
-                <span class="iconfont icon-back"></span>
-            </div>
-            <div class=login-top-middle>登陆注册</div>
-            <div class=login-top-right>密码登录</div>
-        </div> 
-                 
+   <div>
+        <div class="login-top">
+        <div></div>
+        <div>{{middleTop}}</div>
+        <div>
+            <slot name="right"></slot>  
+        </div>         
     </div>
+   </div>
 </template>
 
 <script>
 export default {
-
+    props:['middleTop']
 }
 </script>
 
-<style scoped>
-    .login-top {
-        height: 60px;
-        width: 100%;    
-        position: fixed;
-        color: #000;
-    }
-    .login-top .backBtn {
-        line-height: 60px;
-        width: 100%;
+<style lang="less" scoped>
+.login-top {
+    height: 12.5vw;
+    background-color: #fff;
+    display: flex;
+    div{
+        flex: 1;
         display: flex;
-        justify-content: space-between;
-        padding: 0 15px;
-        
+        justify-content: center;
+        align-items: center;
+        font-size: 4.444vw;
     }
+}
+   
   
 
-    .login-top .backBtn span {
-        font-size: 30px;
-        
-    }
-
-    .login-top .backBtn .login-top-middle {
-        
-        font-size: 17px;
-        
-
-    }
-    .login-top .backBtn .login-top-right {
-       
-        font-size: 10px;
-        color: #777;
-        
-    }
+   
     
     
 

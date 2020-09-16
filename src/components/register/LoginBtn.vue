@@ -1,7 +1,7 @@
-<template>
+ <template>
   <div>
       <div class="btn">
-          <div class="loginbtn" @click="registerClick">{{btn}}</div>
+          <div class="loginBtn" @click="registerClick">{{btnText}}</div>
       </div>
 
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    props: ['btn'],
+    props: ['btnText'],
     methods: {
         registerClick() {
             this.$emit('registerSubmit')
@@ -19,20 +19,18 @@ export default {
 </script>
 
 <style>
-    .btn {
-        padding: 15px 10px;
-    }
+.btn {
+    padding: 4.167vw 2.778vw;
+}
+.loginBtn {
+    height: 12.5vw;
+    background-color: #ff9db5;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6.25vw;
+    font-size: 4.444vw;
 
-    .loginbtn {
-        height: 45px;
-        background-color: pink; 
-        display: flex;
-        border-radius: 5px;
-        color: white;
-        padding: 15px 32px;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 16px;
-    }
+}
 </style>

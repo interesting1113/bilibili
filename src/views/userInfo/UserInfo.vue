@@ -1,14 +1,14 @@
 <template>
   <div>
       <nav-bar></nav-bar>
-      <img src="../statics/images/bgcImg.png" alt="" class="bgcImg">
+      <img src="../../statics/images/bgcImg.png" alt="" class="bgcImg">
       <user-info></user-info>
   </div>
 </template>
 
 <script>
-import NavBar from '../components/NavBar'
-import UserInfo from '../components/user/UserDetail'
+import NavBar from '../../components/NavBar'
+import UserInfo from '../../components/user/UserDetail'
 export default {
     components: {
         NavBar,
