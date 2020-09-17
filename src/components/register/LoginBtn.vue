@@ -20,17 +20,17 @@ export default {
 
 <style>
 .btn {
-    padding: 4.167vw 2.778vw;
+    padding: 4.167vw 3.778vw;
 }
 .loginBtn {
-    height: 12.5vw;
+    height: 11.5vw;
     background-color: #ff9db5;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 6.25vw;
-    font-size: 4.444vw;
+    border-radius: 1.25vw;
+    font-size: 3.444vw;
 
 }
 </style>

@@ -1,7 +1,12 @@
 <template>
     <div>
         <login-top middleTop="注册bilibili">
-            <div slot="right" @click="$router.push('/login')">切换到登陆</div>
+            <div slot="right" 
+                @click="$router.push('/login')"
+                style="color:#b0b6c1;
+                        font-size:2.611vw;
+                        margin-left: 5.245vw;"
+            >切换到登陆</div>
         </login-top>
         <login-text label="姓名" 
                     style= "margin: 4.167vw 0;"
@@ -50,6 +55,11 @@ export default {
             if(rulg.test(this.userInfo.name) && rulg.test(this.userInfo.username) && rulg.test(this.userInfo.password)){
                 const res = await this.$http.post('/register', this.userInfo)
                     this.$toast.fail(res.data.msg)
+                    localStorage.setItem('id', res.data.id)
+                    localStorage.setItem('token', res.data.objtoken)
+                    setTimeout(() => {
+                        this.$router.push('/userInfo')
+                    }, 1000)
                     //如果账号已存在
                     if(res.data.code == 302){
                         return

@@ -18,15 +18,16 @@ export default {
 
 <style lang="less" scoped>
 .login-top {
-    height: 12.5vw;
-    background-color: #fff;
+    height: 12.889vw;
+    background-color: white;
     display: flex;
+   
     div{
         flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 4.444vw;
+        font-size: 4.444vw; 
     }
 }
    

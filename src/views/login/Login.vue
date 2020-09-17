@@ -1,7 +1,13 @@
 <template>
     <div>
         <login-top middleTop="登陆bilibili">
-            <div slot="right" @click="$router.push('/register')">切换到注册</div>
+            <div slot="right"
+                 @click="$router.push('/register')"
+                 style="color:#b0b6c1;
+                        font-size:2.611vw;
+                        margin-left: 5.245vw;"
+            >
+            切换到注册</div>
         </login-top>
         <login-text style="margin:4.167vw 0;"
                     label="账号" 
@@ -45,9 +51,14 @@ export default {
                 const res = await this.$http.post('/login', this.userInfo)
                     this.$toast.fail(res.data.msg)
                     //如果账号已存在
-                    if(res.data.code == 302){
+                    if(res.data.code == 301 || res.data.code == 301 ){
                         return
                     }
+                    localStorage.setItem('token', res.data.token)
+                    localStorage.setItem('id', res.data.id)
+                    setTimeout(() => {
+                        this.$router.push('/userInfo')
+                    }, 1000)
                 
             }else {
                 this.$toast.fail("格式不正确，请重新输入！")
