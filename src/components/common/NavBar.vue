@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
       <div class="logo">
-          <img src="../../statics/images/logo.png" alt="">
+          <img src="../../statics/images/logo.png" alt="" @click="$router.push('/home')">
       </div>
       <div class="search"> 
           <p>   
@@ -10,7 +10,7 @@
       </div>
       <div>
           <img :src="imgUrl" alt="" v-if="imgUrl" @click="$router.push('/edit')">
-          <img src="../../statics/images/icon3.png" alt="" v-else @click="router.push('/edit')">
+          <img src="../../statics/images/icon3.png" alt="" v-else @click="$router.push('/edit')">
           <p>下载App</p>
       </div>
   </div>

@@ -1,12 +1,20 @@
 <template>
-  <div>
+  <div class="home">
     <nav-bar></nav-bar>
-    <van-tabs v-model="active" scrollspy sticky>
+    <van-tabs v-model="active" swipeable>
         <van-tab v-for="(item, index) in category" :key="index" :title="item.title">    
-            <detail :detailItem="categoryItem" 
+            <div class="detailParent">
+                <cover class="detailItem" :detailItem="categoryItem" 
                     v-for="(categoryItem, categoryIndex) in item.list" 
                     :key="categoryIndex"/>
-
+            </div>
+            <van-list
+                v-model="item.loading"
+                :immediate-check="false"
+                :finished="item.finished"
+                finished-text="没有更多了"
+                offset="1"
+                @load="onLoad"/>
         </van-tab>
     </van-tabs>
     
@@ -15,7 +23,7 @@
 
 <script>
 import NavBar from '../../components/common/NavBar'
-import Detail from '../../views/detail/Detail'
+import Cover from '../../views/cover/Cover'
 export default {
     data() {
         return {
@@ -28,26 +36,43 @@ export default {
             const res = await this.$http.get('/category')
             this.changeCategory(res.data)
         },
+        //改变category里的数据
+        //先改造res.data里的数据再赋值给category
         changeCategory(data) {
             const category1 = data.map((item) => {
                 item.list = []
                 item.page = 0
                 item.pagesize = 10
+                item.finished = false
+                item.loading = false
                 return item
             })
-            this.category = category1         
+            this.category = category1
+            this.selectArticle()         
         },
         async selectArticle() {
             const categoryItem = this.categoryItem()
-            const res = await this.$http.get('/data/' + categoryItem._id, {
+            const res = await this.$http.get('/detail/' + categoryItem._id, {
                 params: {
                     page: categoryItem.page, 
                     pagesize: categoryItem.pagesize
                 }
             })
-            categoryItem.list = res.data
+            categoryItem.list.push(...res.data)
+            categoryItem.loading = false
+            if(res.data.length < categoryItem.pagesize){
+                categoryItem.finished = true
+            }
         
         },
+        onLoad() {
+            const categoryItem = this.categoryItem()
+            setTimeout(() => {
+                categoryItem.page += 1
+                this.selectArticle()
+            }, 500)
+        },
+        //获取被点击的分类项数据 
         categoryItem() {
             const categoryItem = this.category[this.active]
             return categoryItem
@@ -63,13 +88,24 @@ export default {
     },
     components: {
         NavBar,
-        Detail
+        Cover
     }
 
 }
 </script>
     
 
-<style>
+<style lang="less" scoped>
+.home {
+    background-color: #fff;
+}
+.detailParent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .detailItem {
+        width: 45%
+    }
+}
 
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="editBtn">
-      <van-button plain block type="primary" @click="$router.back()">{{ btnText }}</van-button>
+      <van-button plain block type="primary" @click="$router.push('/userInfo')">{{ btnText }}</van-button>
   </div>
 </template>
 
@@ -18,5 +18,6 @@ export default {
         border-color: transparent !important ;
     }
 }
+
 
 </style>
