@@ -5,6 +5,7 @@ import UserInfo from '../views/userInfo/UserInfo.vue'
 import Login from '../views/login/Login.vue'
 import Edit from '../views/edit/Edit.vue'
 import Home from '../views/home/Home.vue'
+import Article from '../views/article/Article.vue'
 
 Vue.use(VueRouter)
 
@@ -44,6 +45,11 @@ const routes = [
         meta: {
             istoken: true
         }
+    },
+    {
+        path: '/article/:id',
+        name: 'Article',
+        component: Article
     }
 
 

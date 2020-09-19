@@ -1,5 +1,5 @@
 <template>
-  <div @click="$router.push('/detail/' + detailItem.id + '')">
+  <div @click="$router.push(`/article/${detailItem.id}`)">
     <div class="detailItem">
       <div class="imgParent">
         <img :src="detailItem.img" alt="" style="width: 100%; height:27.778vw;">
