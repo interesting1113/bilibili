@@ -2,14 +2,14 @@
 
  Technology Stack
  
- vue2.6 + vue-router + axios + ES6 + less + flex + vant
+ vue4.x + vue-router + axios + ES6 + less + flex + vant
  
  Features
  
- Login --- complete
- Register --- complete
- Editing Information --- complete
- Video --- complete
+ Login --- complete  
+ Register --- complete  
+ Editing Information --- complete  
+ Video --- complete  
  
 
 ## Project setup
