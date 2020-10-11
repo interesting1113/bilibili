@@ -2,7 +2,7 @@
 
  Technology Stack
  
- vue4.x + vue-router + axios + ES6 + less + flex + vant
+ vue2.x + vue-router + axios + ES6 + less + flex + vant
  
  Features
  
